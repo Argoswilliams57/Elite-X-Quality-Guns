@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}_universal",
+  "version": "${mod_version}",
+  "name": "${mod_name} (Universal)",
+  "description": "${mod_description} This universal wrapper bundles the Fabric and NeoForge implementations; install this single jar on either loader.",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "license": "${mod_license}",
+  "environment": "*",
+  "jars": [
+    {
+      "file": "META-INF/jars/${universal_fabric_jar}"
+    }
+  ],
+  "depends": {
+    "fabricloader": "${fabric_loader_version_range}",
+    "minecraft": "${fabric_minecraft_version_range}",
+    "java": ">=21"
+  }
+}

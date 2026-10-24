@@ -1,0 +1,15 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "c:nuggets/iron"
+      },
+      "count": 3
+    }
+  ],
+  "result": {
+    "type": "attachment",
+    "id": "elitex:shotgun_suppressor"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

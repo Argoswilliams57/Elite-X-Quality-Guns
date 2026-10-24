@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.psg1_scope.name",
+  "display": "elitex:psg1_scope_display",
+  "data": "elitex:psg1_scope_data",
+  "type": "scope",
+  "hidden": true
+}

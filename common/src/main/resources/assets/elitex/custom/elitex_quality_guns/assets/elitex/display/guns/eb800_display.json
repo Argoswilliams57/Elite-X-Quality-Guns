@@ -1,0 +1,79 @@
+{
+  "model_type": "mesh",
+  "model": "elitex:gun/eb800",
+  "texture": "elitex:gun/uv/eb800",
+  "hud": "elitex:gun/hud/eb800",
+  "slot": "elitex:gun/slot/eb800",
+  "animation": "elitex:eb800",
+  "use_default_animation": "rifle",
+  "third_person_animation": "default",
+  "default_animation": "elitex:elitex_default_walking",
+  "transform": {
+    "scale": {
+      "thirdperson": [0.6, 0.6, 0.6],
+      "ground": [0.6, 0.6, 0.6],
+      "fixed": [1.2, 1.2, 1.2]
+    }
+  },
+  "muzzle_flash": {
+    "texture": "elitex:flash/universal_flash",
+    "scale": 1.9
+  },
+
+  "ammo_count_style": "normal",
+  "damage_style": "per_projectile",
+  "state_machine": "elitex:eb800_state_machine",
+
+  //"state_machine": "elitex:pump_action_state_machine",
+  "state_machine_param": {
+    "bolt_shell_ejecting_time": 0.37,
+    "intro_shell_ejecting_time": 1.5
+  },
+  "iron_zoom": 1.2,
+
+  "sounds": {
+    "shoot": "elitex:shotguns/eb800/eb800_fire",
+    "shoot_3p": "elitex:shotguns/eb800/eb800_fire_3p",
+    "silence": "elitex:shotguns/eb800/eb800_suppressed",
+    "silence_3p": "elitex:shotguns/eb800/eb800_suppressed_3p",
+    "inspect": "elitex:shotguns/eb800/eb800_inspect",
+    "inspect_empty": "elitex:shotguns/eb800/eb800_inspect_empty",
+    "draw": "elitex:shotguns/eb800/eb800_draw",
+    "put_away": "elitex:shotguns/eb800/eb800_put_away",
+    "melee_push": "elitex:shotguns/eb800/eb800_melee",
+    "melee_stock": "elitex:shotguns/eb800/eb800_melee",
+    "dry_fire":  "elitex:platform_sound_sfx/shotgun_platform_sfx/shotgun_platform_dry_fire1"
+
+
+  },
+  "offhand_show": {
+    "pos": [1, 19, 4],
+    "rotate": [0, 0, 50],
+    "scale": [0.3, 0.3, 0.3]
+  },
+  "hotbar_show": {
+    "0": {
+      "pos": [-1, 19, 3],
+      "rotate": [-180, 0, 130],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  },
+
+  "shell": {
+    "initial_velocity": [5, 0.5, 1],
+    "random_velocity": [1, 0.5, 0.25],
+    "acceleration": [0.0, -10, 0.0],
+    "angular_velocity": [360, -960, 90],
+    "living_time": 3.0
+  },
+
+
+  "controllable": {
+    "semi": {
+      "low_frequency": 0.25,
+      "high_frequency": 0.5,
+      "time": 50
+    }
+  }
+
+}

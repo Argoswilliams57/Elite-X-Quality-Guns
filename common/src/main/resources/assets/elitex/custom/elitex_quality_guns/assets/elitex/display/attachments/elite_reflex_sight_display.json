@@ -1,0 +1,15 @@
+{
+  "slot": "elitex:attachments/slot/elite_reflex_sight",
+  "model": "elitex:attachments/sights/elite_reflex_sight",
+  "texture": "elitex:attachments/sights/elite_reflex_sight",
+  "zoom": [
+    1.2
+  ],
+  "scope": false,
+  "sight": true,
+  "fov": 50.0,
+  "sounds": {
+    "install": "tacz:attachments/scope_general_c",
+    "uninstall": "tacz:attachments/scope_general_c"
+  }
+}

@@ -1,0 +1,161 @@
+plugins {
+    id 'fabric-loom'
+    id 'maven-publish'
+}
+
+base {
+    archivesName = 'Elite X Quality Guns Fabric'
+}
+
+repositories {
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+    // TaCZ: Refabricated bundles FiguraMC's LuaJ fork as a Jar-in-Jar library.
+    maven {
+        name = 'JitPack (FiguraMC LuaJ)'
+        url = 'https://jitpack.io'
+        content {
+            includeGroup 'com.github.FiguraMC.luaj'
+        }
+    }
+    // Cardinal Components API modules that TaCZ: Refabricated embeds as Jar-in-Jar.
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup 'org.ladysnake.cardinal-components-api'
+        }
+    }
+    // Mod Menu (com.terraformersmc:modmenu).
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+        content {
+            includeGroup 'com.terraformersmc'
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // TaCZ: Refabricated ships a renderer that both declares its own `render` method and
+    // overrides the vanilla one; remapping both to the Yarn name `render` would produce a
+    // duplicate method. The layered tiny file renames TaCZ's own method to `render$tacz`.
+    mappings loom.layered {
+        mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+        mappings file('mappings/tacz-render-fix.tiny')
+    }
+
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // Runtime dependencies of the mod itself.
+    modImplementation "curse.maven:forge-config-api-port-fabric-547434:${forge_config_api_port_fabric_file}"
+    modImplementation "curse.maven:tacz-refabricated-1334246:${tacz_fabric_file}"
+    modImplementation "curse.maven:tacz-mesh-loader-1549522:${tacz_mesh_loader_fabric_file}"
+
+    // Optional configuration UI (Mod Menu only shows the button when installed).
+    // These are maven dependencies only: Loom does not nest them into the jar
+    // (only `include` does), so the released jar keeps the same contents and the
+    // players install them separately.
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // ---------------------------------------------------------------------------
+    // Development-runtime libraries (runClient / runServer only).
+    //
+    // TaCZ: Refabricated embeds LuaJ, Cardinal Components, commons-math,
+    // Cardinal Components 6.1.2 and SimpleBedrockModel (which itself embeds mae)
+    // as Jar-in-Jar entries in META-INF/jars/. Fabric Loader only unpacks nested
+    // jars for a production launch from the mods folder - during a dev launch
+    // they never reach the classpath, so TaCZ would crash with:
+    //   NoClassDefFoundError: org/luaj/vm2/Varargs
+    //   NoClassDefFoundError: org/ladysnake/cca/api/v3/entity/EntityComponentInitializer
+    // Adding the same artifacts below makes the dev runtime match production.
+    // None of them are embedded in the released jar: production keeps using the
+    // copies TaCZ already ships.
+    // ---------------------------------------------------------------------------
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-core:3.0.8-figura"
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-jse:3.0.8-figura" // also pulls bcel 6.6.1
+    runtimeOnly "org.apache.commons:commons-math3:3.6.1"        // gun recoil / interpolation math
+    // Forge Config API Port embeds NightConfig (core + toml 3.8.0) as Jar-in-Jar.
+    // A dev launch does not unpack nested jars, so TaCZ's PreLoadConfig and this
+    // mod's ModConfigSpec fail with:
+    //   NoClassDefFoundError: com/electronwill/nightconfig/core/ConfigFormat
+    // Versions match the copies Forge Config API Port 21.1.6 ships.
+    runtimeOnly "com.electronwill.night-config:core:3.8.0"
+    runtimeOnly "com.electronwill.night-config:toml:3.8.0"
+    runtimeOnly("com.maydaymemory:mae:1.1.1") {                 // animation engine used by SimpleBedrockModel
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'it.unimi.dsi', module: 'fastutil'
+        exclude group: 'org.joml', module: 'joml'
+    }
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-base:6.1.2"
+    modImplementation "org.ladysnake.cardinal-components-api:cardinal-components-entity:6.1.2"
+    // SimpleBedrockModel (Fabric port) is not published to a Maven; the exact jar
+    // TaCZ 0.7.1 embeds on 1.21.1 is stored in fabric/libs. It is a dev-runtime
+    // library only: production uses the Jar-in-Jar copy TaCZ ships. The 1.21.1
+    // build applies TaCZ's `ViewportEvent.CAMERA` roll to the camera rotation in
+    // its own CameraMixin, which is why this mod no longer needs a camera bridge.
+    modRuntimeOnly files('libs/simplebedrockmodel-fabric-2.3.0.1+mc1.21.1.jar')
+}
+
+sourceSets {
+    main {
+        resources {
+            // Shared content pack and assets (single source of truth).
+            srcDir rootProject.file('common/src/main/resources')
+        }
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = java_version as int
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(java_version as int)
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "Elite X Quality Guns Fabric",
+                "Specification-Vendor"    : "Argos Williams",
+                "Specification-Version"   : project.version,
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "Argos Williams",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = 'Elite X Quality Guns Fabric'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${rootProject.projectDir}/mcmodsrepo"
+        }
+    }
+}

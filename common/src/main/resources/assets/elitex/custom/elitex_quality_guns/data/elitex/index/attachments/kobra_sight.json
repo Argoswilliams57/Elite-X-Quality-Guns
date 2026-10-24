@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.kobra_sight.name",
+  "display": "elitex:kobra_sight_display",
+  "data": "elitex:kobra_sight_data",
+  "type": "scope",
+  "sort": 12
+}

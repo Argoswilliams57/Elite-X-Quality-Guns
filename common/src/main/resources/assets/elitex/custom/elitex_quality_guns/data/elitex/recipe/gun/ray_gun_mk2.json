@@ -1,0 +1,57 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "c:ingots/iron"
+      },
+      "count": 178
+    },
+    {
+      "item": {
+        "tag": "c:gems/diamond"
+      },
+      "count": 40
+    },
+    {
+      "item": {
+        "tag": "c:dusts/redstone"
+      },
+      "count": 64
+    },
+    {
+      "item": {
+        "tag": "c:nether_stars"
+      },
+      "count": 2
+    },
+    {
+      "item": {
+        "tag": "c:ingots/gold"
+      },
+      "count": 60
+    },
+    {
+      "item": {
+        "item": "minecraft:repeater"
+      },
+      "count": 3
+    },
+    {
+      "item": {
+        "item": "minecraft:observer"
+      },
+      "count": 2
+    },
+    {
+      "item": {
+        "item": "minecraft:end_crystal"
+      },
+      "count": 2
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "elitex:ray_gun_mk2"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

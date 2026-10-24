@@ -1,0 +1,21 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "c:ingots/iron"
+      },
+      "count": 18
+    },
+    {
+      "item": {
+        "tag": "c:glass_blocks"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "type": "attachment",
+    "id": "elitex:2x_green_dot_sight"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

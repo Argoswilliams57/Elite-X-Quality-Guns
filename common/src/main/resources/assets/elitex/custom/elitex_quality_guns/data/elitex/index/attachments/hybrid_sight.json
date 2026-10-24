@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.hybrid_sight.name",
+  "display": "elitex:hybrid_sight_display",
+  "data": "elitex:hybrid_sight_data",
+  "type": "scope",
+  "sort": 13
+}

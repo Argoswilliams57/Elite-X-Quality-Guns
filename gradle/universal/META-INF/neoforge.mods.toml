@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="${neoforge_loader_version_range}"
+license="${mod_license}"
+
+# This outer jar is only a distribution wrapper. The real NeoForge mod is the
+# nested elitex-neoforge jar listed in META-INF/jarjar/metadata.json.
+[[mods]]
+modId="${mod_id}_universal"
+version="${mod_version}"
+displayName="${mod_name} (Universal)"
+authors="${mod_authors}"
+description='''${mod_description} This universal wrapper bundles the Fabric and NeoForge implementations; install this single jar on either loader.'''
+
+[[dependencies.${mod_id}_universal]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.0,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}_universal]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,21 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "c:ingots/iron"
+      },
+      "count": 90
+    },
+    {
+      "item": {
+        "item": "minecraft:glass"
+      },
+      "count": 7
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "elitex:psg1"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

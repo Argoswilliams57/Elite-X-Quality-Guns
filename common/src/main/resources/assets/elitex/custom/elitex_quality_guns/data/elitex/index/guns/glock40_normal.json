@@ -1,0 +1,7 @@
+{
+  "name": "elitex.gun.glock40_normal.name",
+  "display": "elitex:glock40_normal_display",
+  "data": "elitex:glock40_normal_data",
+  "type": "pistol",
+  "tooltip": "elitex.gun.glock40_normal.desc"
+}

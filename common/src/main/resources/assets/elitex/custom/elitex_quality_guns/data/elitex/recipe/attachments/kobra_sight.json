@@ -1,0 +1,21 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "c:ingots/iron"
+      },
+      "count": 15
+    },
+    {
+      "item": {
+        "tag": "c:glass_blocks"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "type": "attachment",
+    "id": "elitex:kobra_sight"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

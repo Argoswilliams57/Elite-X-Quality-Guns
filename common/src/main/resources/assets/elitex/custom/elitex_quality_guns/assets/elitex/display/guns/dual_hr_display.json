@@ -1,0 +1,53 @@
+{
+  "model_type": "mesh",
+  "model": "elitex:gun/dual_hr",
+  "texture": "elitex:gun/uv/dual_hr",
+  "hud": "elitex:gun/hud/dual_hr",
+  "slot": "elitex:gun/slot/dual_hr",
+  "animation": "elitex:dual_hr",
+  "lod": {
+    "model": "elitex:gun/lod/trs_bull",
+    "texture": "elitex:gun/lod/trs_bull"
+  },
+  "use_default_animation": "pistol",
+  "third_person_animation": "default",
+  "default_animation": "elitex:elitex_default_walking",
+  "state_machine": "elitex:dual_wield_state_machine",
+  "transform": {
+    "scale": {
+      "thirdperson": [0.8, 0.8, 0.8],
+      "ground": [0.7, 0.7, 0.7],
+      "fixed": [1.1, 1.1, 1.1]
+    }
+  },
+  "show_crosshair": true,
+  "muzzle_flash": {
+    "texture": "elitex:flash/universal_flash",
+    "scale": 2.1
+  },
+
+  "sounds": {
+    "inspect": "elitex:pistols/dual_hr/dual_hr_inspect",
+    "inspect_empty": "elitex:pistols/dual_hr/dual_hr_inspect_empty",
+    "draw": "elitex:pistols/dual_hr/dual_hr_draw",
+    "shoot": "elitex:pistols/dual_hr/dual_hr_fire",
+    "shoot_3p": "elitex:pistols/dual_hr/dual_hr_fire_3p",
+    "reload_tactical": "elitex:pistols/dual_hr/dual_hr_reload",
+    "reload_empty": "elitex:pistols/dual_hr/dual_hr_reload_empty",
+    "put_away": "elitex:pistols/dual_hr/dual_hr_put_away",
+    "dry_fire":  "elitex:platform_sound_sfx/pistols_sfx/regular_pistol_dry_fire"
+
+  },
+  "offhand_show": {
+    "pos": [4, 13, -1],
+    "rotate": [-90, -35, 90],
+    "scale": [0.2, 0.2, 0.2]
+  },
+  "hotbar_show": {
+    "0": {
+      "pos": [-5, 13, -1],
+      "rotate": [-90, -35, 90],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

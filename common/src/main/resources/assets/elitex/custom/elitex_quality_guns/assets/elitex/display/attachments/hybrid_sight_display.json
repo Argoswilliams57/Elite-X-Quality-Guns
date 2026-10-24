@@ -1,0 +1,19 @@
+{
+  "slot": "elitex:attachments/slot/hybrid_sight",
+  "model": "elitex:attachments/sights/hybrid_sight",
+  "texture": "elitex:attachments/sights/hybrid_sight",
+  "zoom": [
+    5.0
+  ],
+  "views": [
+    1
+  ],
+  "views_fov": [
+    32.0
+  ],
+  "scope": true,
+  "sounds": {
+    "install": "tacz:attachments/scope_general_a",
+    "uninstall": "tacz:attachments/scope_general_a"
+  }
+}
