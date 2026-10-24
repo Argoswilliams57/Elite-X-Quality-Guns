@@ -1,0 +1,29 @@
+plugins {
+    id 'base'
+}
+
+allprojects {
+    group = 'com.argos_garcia.elitex'
+    version = '6.1'
+}
+
+// `./gradlew build` builds both loader modules.
+tasks.named('build') {
+    dependsOn ':forge:build', ':fabric:build'
+}
+
+tasks.register('buildAll') {
+    group = 'build'
+    description = 'Builds the Forge and Fabric releases.'
+    dependsOn ':forge:build', ':fabric:build'
+}
+
+// Merge the reobfuscated Forge jar and the remapped Fabric jar into one jar that
+// both loaders accept. Requires Python 3 (same as tools/validate_gunpack.py).
+tasks.register('universalJar', Exec) {
+    group = 'build'
+    description = 'Builds the merged Forge + Fabric universal jar in dist/.'
+    dependsOn ':forge:build', ':fabric:build'
+    workingDir rootProject.projectDir
+    commandLine 'python3', 'tools/build_universal_jar.py'
+}

@@ -1,0 +1,19 @@
+{
+  "slot": "elitex:attachments/slot/2x_green_dot_sight",
+  "model": "elitex:attachments/sights/2x_green_dot_sight",
+  "texture": "elitex:attachments/uv/2x_green_dot_sight",
+  "zoom": [
+    2.0
+  ],
+  "views": [
+    1
+  ],
+  "views_fov": [
+    40.0
+  ],
+  "scope": true,
+  "sounds": {
+    "install": "tacz:attachments/scope_general_a",
+    "uninstall": "tacz:attachments/scope_general_a"
+  }
+}

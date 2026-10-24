@@ -1,0 +1,7 @@
+{
+    "name": "elitex.gun.eb800.name",
+    "display": "elitex:eb800_display",
+    "data": "elitex:eb800_data",
+    "type": "shotgun",
+    "tooltip": "elitex.gun.eb800.desc"
+}

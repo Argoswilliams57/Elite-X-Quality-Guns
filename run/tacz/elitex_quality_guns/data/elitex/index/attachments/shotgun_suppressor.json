@@ -1,0 +1,6 @@
+{
+  "name": "elitex.attachment.shotgun_suppressor.name",
+  "display": "elitex:shotgun_suppressor_display",
+  "data": "elitex:shotgun_suppressor_data",
+  "type": "muzzle"
+}

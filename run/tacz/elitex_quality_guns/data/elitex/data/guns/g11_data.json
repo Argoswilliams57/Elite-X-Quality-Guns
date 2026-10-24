@@ -1,0 +1,100 @@
+{
+  "ammo": "elitex:dmr_rifles_ammo",
+  "ammo_amount": 50,
+  "bolt": "open_bolt",
+  "rpm": 780,
+  "bullet": {
+    "life": 5.75,
+    "bullet_amount": 1,
+    "damage": 5.5,
+    "tracer_count_interval": 0,
+    "extra_damage": {
+      "armor_ignore": 0.2,
+      "head_shot_multiplier": 1.5,
+      "damage_adjust": [
+        {"distance": 12, "damage": 45.5},
+        {"distance": 25, "damage": 35.5},
+        {"distance": 60, "damage": 25.5},
+        {"distance": "infinite", "damage": 22}
+      ]
+    },
+    "speed": 835,
+    "gravity": 0.0265,
+    "knockback": 0,
+    "friction": 0.015,
+    "ignite": false,
+    "pierce": 1
+  },
+  "reload": {
+    "type": "magazine",
+    "feed": {
+      "empty": 5.45,
+      "tactical": 3.77
+    },
+    "cooldown": {
+      "empty": 6.17,
+      "tactical": 4.53
+    }
+  },
+  "draw_time": 0.67,
+  "put_away_time": 0.74,
+  "aim_time": 0.1,
+  "sprint_time": 0.1,
+  "fire_mode": [
+    "semi",
+    "auto",
+    "burst"
+  ],
+  "burst_data": {
+    "continuous_shoot": true,
+    "count": 3,
+    "bpm": 1100,
+    "min_interval": 0.4
+  },
+
+  "recoil": {
+    "pitch": [
+      {"time": 0, "value": [0.35, 0.35]},  // Soft initial upward kick
+      {"time": 0.3, "value": [0.35, 0.35]}, // Hold the recoil briefly
+      {"time": 0.5, "value": [-0.08, -0.08]}, // Gentle recovery
+      {"time": 0.65, "value": [0, 0]}  // Return to neutral
+    ],
+
+    "yaw": [
+      {"time": 0, "value": [0.08, 0.15]}, // Very little horizontal movement
+      {"time": 0.3, "value": [0.08, 0.15]},  // Maintain slight sway
+      {"time": 0.5, "value": [0, 0]}   // Return to center
+    ]
+  },
+
+
+  "inaccuracy": {
+    "stand": 3,
+    "move": 4,
+    "sneak": 1,
+    "lie": 0.5,
+    "aim": 0.110
+  },
+
+  "builtin_attachments": {
+    "scope": "elitex:g11_scope"
+  },
+
+  "allow_attachment_types": [
+  ],
+  "exclusive_attachments": {
+  },
+
+  "melee": {
+    "distance": 1,
+    "cooldown": 0.7,
+    "default": {
+      "animation_type": "melee_stock",
+      "distance": 2,
+      "range_angle": 30,
+      "damage": 33,
+      "knockback": 0.6,
+      "prep": 0.08
+    }
+  }
+}

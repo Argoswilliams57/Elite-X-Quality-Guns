@@ -1,0 +1,124 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0+', changing: true
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'maven-publish'
+
+archivesBaseName = 'Elite X Quality Guns Forge'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+
+    runs {
+        client {
+            workingDirectory rootProject.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.disableRefMap', 'true'
+
+            mods {
+                elitex {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory rootProject.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.disableRefMap', 'true'
+
+            mods {
+                elitex {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory rootProject.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.disableRefMap', 'true'
+            args '--mod', 'elitex', '--all', '--output', file('src/generated/resources/')
+
+            mods {
+                elitex {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            // Shared content pack and assets (single source of truth).
+            srcDir rootProject.file('common/src/main/resources')
+            srcDir 'src/generated/resources'
+        }
+    }
+}
+
+repositories {
+    maven {
+        url = "https://www.cursemaven.com"
+    }
+
+    flatDir {
+        dirs rootProject.file('libs/mods')
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:9037989")
+    implementation fg.deobf("curse.maven:tacz-mesh-loader-1549522:9014965")
+}
+
+jar {
+    // src/main/resources/META-INF/MANIFEST.MF registers the mixin config for the
+    // dev runs (Mixin reads the manifest of a directory classpath root); the real
+    // jar manifest below is the one shipped in the published jar.
+    exclude 'META-INF/MANIFEST.MF'
+    manifest {
+        attributes([
+                "Specification-Title": "Elite X Quality Guns",
+                "Specification-Vendor": "Argos Williams",
+                "Specification-Version": project.version,
+                "Implementation-Title": project.name,
+                "Implementation-Version": project.jar.archiveVersion,
+                "Implementation-Vendor" :"Argos Williams",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                // Forge 1.20.1 has no "[[mixins]]" mods.toml entry; Mixin discovers
+                // configs through this manifest attribute (also kept in the universal jar).
+                "MixinConfigs": "elitex.mixins.json"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${rootProject.projectDir}/mcmodsrepo"
+        }
+    }
+}

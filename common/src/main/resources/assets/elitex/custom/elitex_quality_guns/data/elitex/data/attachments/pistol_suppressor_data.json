@@ -1,0 +1,18 @@
+{
+  "weight": 0.38,
+  "ads": {
+    "addend": 0.02
+  },
+  "aim_inaccuracy": {
+    "multiplier": 0.65
+  },
+  "recoil": {
+    "pitch": {
+      "multiplier": 0.2
+    }
+  },
+  "silence": {
+    "distance_addend": 0,
+    "use_silence_sound": true
+  }
+}

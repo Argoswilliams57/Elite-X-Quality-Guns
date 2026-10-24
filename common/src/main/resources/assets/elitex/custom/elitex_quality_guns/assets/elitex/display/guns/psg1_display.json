@@ -1,0 +1,47 @@
+{
+  "model_type": "mesh",
+  "model": "elitex:gun/psg1",
+  "texture": "elitex:gun/uv/psg1",
+  "hud": "elitex:gun/hud/psg1",
+  "slot": "elitex:gun/slot/psg1",
+  "animation": "elitex:psg1",
+  "use_default_animation": "rifle",
+  "third_person_animation": "default",
+  "default_animation": "elitex:elitex_default_walking",
+  "state_machine": "elitex:psg1_state_machine",
+  "transform": {
+    "scale": {
+      "thirdperson": [0.6, 0.6, 0.6],
+      "ground": [0.6, 0.6, 0.6],
+      "fixed": [1.2, 1.2, 1.2]
+    }
+  },
+  "muzzle_flash": {
+    "texture": "elitex:flash/universal_flash",
+    "scale": 2.8
+  },
+  "sounds": {
+    "shoot": "elitex:snipers/psg1/psg1_fire",
+    "shoot_3p": "elitex:snipers/psg1/psg1_fire2",
+    "inspect": "elitex:snipers/psg1/psg1_inspect",
+    "inspect_empty": "elitex:snipers/psg1/psg1_inspect",
+    "reload_tactical": "elitex:snipers/psg1/psg1_reload",
+    "reload_empty": "elitex:snipers/psg1/psg1_reload_empty",
+    "draw": "elitex:snipers/psg1/psg1_draw",
+    "put_away": "elitex:snipers/psg1/psg1_put_away",
+    "melee_stock": "elitex:snipers/psg1/psg1_melee",
+    "dry_fire": "elitex:platform_sound_sfx/bolt_action_sfx/bolt_action_rifle_platform_dryfire"
+  },
+  "offhand_show": {
+    "pos": [-2, 20, 4],
+    "rotate": [0, 0, 45],
+    "scale": [0.5, 0.5, 0.5]
+  },
+  "hotbar_show": {
+    "0": {
+      "pos": [-4, 26, 3],
+      "rotate": [-90, -5, -90],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

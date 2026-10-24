@@ -1,0 +1,17 @@
+ammo = {}
+
+[gun]
+	#The default fire sound range (block)
+	#Range: > 0
+	DefaultGunFireSoundDistance = 64
+	#The silencer default fire sound range (block)
+	#Range: > 0
+	DefaultGunSilenceSoundDistance = 16
+	#The range (block) of other gun sound, reloading sound etc.
+	#Range: > 0
+	DefaultGunOtherSoundDistance = 16
+	#Whether or not the player will consume ammo in creative mode
+	CreativePlayerConsumeAmmo = true
+	#Auto reload all the guns in player inventory, useful for pvp servers
+	AutoReloadWhenRespawn = false
+

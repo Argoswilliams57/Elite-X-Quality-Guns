@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.g11_scope.name",
+  "display": "elitex:g11_scope_display",
+  "data": "elitex:g11_scope_data",
+  "type": "scope",
+  "hidden": true
+}

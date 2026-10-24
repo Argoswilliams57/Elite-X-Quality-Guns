@@ -1,0 +1,58 @@
+{
+  "model_type": "mesh",
+  "model": "elitex:gun/glock40_normal_geo",
+  "texture": "elitex:gun/uv/glock40_normal",
+  "hud": "elitex:gun/hud/glock40",
+  "slot": "elitex:gun/slot/glock40",
+  "animation": "elitex:glock40_normal",
+  "lod": {
+    "model": "elitex:gun/lod/glock40",
+    "texture": "elitex:gun/lod/glock40"
+  },
+  "default_animation": "elitex:elitex_default_walking",
+  "use_default_animation": "pistol",
+  "transform": {
+    "scale": {
+      "thirdperson": [0.6, 0.6, 0.6],
+      "ground": [0.6, 0.6, 0.6],
+      "fixed": [1.2, 1.2, 1.2]
+    }
+  },
+  "shell": {
+    "initial_velocity": [5.0, 3.0, 1],
+    "random_velocity": [2.5, 2, 0.25],
+    "acceleration": [0.0, -20, 0.0],
+    "angular_velocity": [360, -960, 90],
+    "living_time": 3.0
+  },
+  "muzzle_flash": {
+    "texture": "elitex:flash/universal_flash",
+    "scale": 2.3
+  },
+  "iron_zoom": 1.1,
+  "sounds": {
+    "draw": "elitex:pistols/glock40/glock40_draw",
+    "put_away": "elitex:pistols/glock40/glock40_put_away",
+    "shoot": "elitex:pistols/glock40/glock40_fire",
+    "shoot_3p": "elitex:pistols/glock40/glock40_fire_3p",
+    "silence": "elitex:pistols/glock40/glock40_suppressed",
+    "silence_3p": "elitex:pistols/glock40/glock40_suppressed_3p",
+    "reload_empty": "elitex:pistols/glock40/glock40_reload_empty",
+    "reload_tactical": "elitex:pistols/glock40/glock40_reload",
+    "inspect": "elitex:pistols/glock40/glock40_inspect",
+    "inspect_empty": "elitex:pistols/glock40/glock40_inspect_empty",
+    "dry_fire":  "elitex:platform_sound_sfx/pistols_sfx/regular_pistol_dry_fire"
+  },
+  "offhand_show": {
+    "pos": [4, 13, -1],
+    "rotate": [-90, -35, 90],
+    "scale": [0.5, 0.5, 0.5]
+  },
+  "hotbar_show": {
+    "0": {
+      "pos": [-5, 13, -1],
+      "rotate": [-90, -35, 90],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

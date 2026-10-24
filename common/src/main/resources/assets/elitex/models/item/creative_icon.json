@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "elitex:item/craftable_items/creative_icon"
+	}
+}

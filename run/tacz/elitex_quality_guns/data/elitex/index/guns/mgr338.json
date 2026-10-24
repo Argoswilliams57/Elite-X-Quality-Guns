@@ -1,0 +1,7 @@
+{
+  "name": "elitex.gun.mgr338.name",
+  "display": "elitex:mgr338_display",
+  "data": "elitex:mgr338_data",
+  "tooltip": "elitex.gun.mgr338.desc",
+  "type": "mg"
+}

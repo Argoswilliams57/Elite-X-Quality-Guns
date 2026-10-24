@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.elite_reflex_sight.name",
+  "display": "elitex:elite_reflex_sight_display",
+  "data": "elitex:elite_reflex_sight_data",
+  "type": "scope",
+  "sort": 10
+}

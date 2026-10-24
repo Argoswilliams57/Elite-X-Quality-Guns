@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.argos_garcia.elitex.fabric.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "elitex.refmap.json",
+  "mixins": [
+    "EntityKineticBulletAccessor",
+    "ExplodeUtilMixin",
+    "JsonDataManagerMixin",
+    "CommonNetworkCacheMixin",
+    "LivingEntityAimMixin",
+    "LivingEntityReloadMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "GameRendererMixin",
+    "LocalPlayerAimMixin",
+    "LocalPlayerReloadMixin"
+  ]
+}

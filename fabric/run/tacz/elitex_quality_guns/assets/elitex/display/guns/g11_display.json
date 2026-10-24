@@ -1,0 +1,54 @@
+{
+  "model_type": "mesh",
+  "model": "elitex:gun/g11",
+  "texture": "elitex:gun/uv/g11",
+  "hud": "elitex:gun/hud/g11",
+  "slot": "elitex:gun/slot/g11",
+  "animation": "elitex:g11",
+  "use_default_animation": "rifle",
+  "third_person_animation": "default",
+  "default_animation": "elitex:elitex_default_walking",
+  "transform": {
+    "scale": {
+      "thirdperson": [0.6, 0.6, 0.6],
+      "ground": [0.6, 0.6, 0.6],
+      "fixed": [1.2, 1.2, 1.2]
+    }
+  },
+  "muzzle_flash": {
+    "texture": "elitex:flash/universal_flash",
+    "scale": 1.7
+  },
+  "iron_zoom": 1.1,
+  "zoom_model_fov": 55,
+  "sounds": {
+    "shoot": "elitex:assault_rifles/g11/g11_fire",
+    "shoot_3p": "elitex:assault_rifles/g11/g11_fire_3p",
+    "reload_empty": "elitex:assault_rifles/g11/g11_reload_empty",
+    "reload_tactical": "elitex:assault_rifles/g11/g11_reload",
+    "inspect": "elitex:assault_rifles/g11/g11_inspect",
+    "inspect_empty": "elitex:assault_rifles/g11/g11_inspect_empty",
+    "draw": "elitex:assault_rifles/g11/g11_draw",
+    "put_away": "elitex:assault_rifles/g11/g11_put_away",
+    "dry_fire": "elitex:assault_rifles/g11/g11_dry_fire",
+    "fire_select": "elitex:assault_rifles/g11/g11_fire_select",
+    "head_hit": "tacz:head_hit",
+    "flesh_hit": "tacz:flesh_hit",
+    "kill": "tacz:kill",
+    "melee_push": "tacz:melee_stock/melee_stock_01",
+    "melee_stock": "elitex:assault_rifles/g11/g11_melee"
+  },
+  "offhand_show": {
+    "pos": [1, 20, 3.5],
+    "rotate": [0, 0, 60],
+    "scale": [0.5, 0.5, 0.5]
+  },
+  "hotbar_show": {
+    "0": {
+      "pos": [-1, 20, 3],
+      "rotate": [-180, 0, 120],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+
+}

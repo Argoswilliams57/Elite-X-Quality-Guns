@@ -1,0 +1,15 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// This module intentionally contains no Java sources.
+// It is the shared resource module: the full TaCZ gun pack, language files,
+// item model/texture and icon live in common/src/main/resources.
+// The forge and fabric modules add that directory to their own source sets,
+// so the exact same bytes end up in both jars.

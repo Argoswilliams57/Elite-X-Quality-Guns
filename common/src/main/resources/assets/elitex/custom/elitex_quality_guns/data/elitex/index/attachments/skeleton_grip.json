@@ -1,0 +1,6 @@
+{
+  "name": "elitex.attachment.skeleton_grip.name",
+  "display": "elitex:skeleton_grip_display",
+  "data": "elitex:skeleton_grip_data",
+  "type": "grip"
+}

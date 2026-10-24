@@ -1,0 +1,7 @@
+{
+  "name": "elitex.gun.dual_hr.name",
+  "display": "elitex:dual_hr_display",
+  "data": "elitex:dual_hr_data",
+  "type": "pistol",
+  "tooltip": "elitex.gun.dual_hr.desc"
+}

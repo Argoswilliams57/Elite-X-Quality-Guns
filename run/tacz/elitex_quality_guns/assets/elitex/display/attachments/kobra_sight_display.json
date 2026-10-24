@@ -1,0 +1,15 @@
+{
+  "slot": "elitex:attachments/slot/kobra_sight",
+  "model": "elitex:attachments/sights/kobra_sight",
+  "texture": "elitex:attachments/sights/kobra_sight",
+  "zoom": [
+    1.5
+  ],
+  "scope": false,
+  "sight": true,
+  "fov": 58.0,
+  "sounds": {
+    "install": "tacz:attachments/scope_general_c",
+    "uninstall": "tacz:attachments/scope_general_c"
+  }
+}

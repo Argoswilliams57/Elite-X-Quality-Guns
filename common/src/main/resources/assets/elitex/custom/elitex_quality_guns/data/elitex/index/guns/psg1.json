@@ -1,0 +1,7 @@
+{
+  "name": "elitex.gun.psg1.name",
+  "display": "elitex:psg1_display",
+  "data": "elitex:psg1_data",
+  "tooltip": "elitex.gun.psg1.desc",
+  "type": "sniper"
+}

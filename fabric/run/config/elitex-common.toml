@@ -1,0 +1,10 @@
+
+#Gameplay options
+[gameplay]
+	#Default for aiming (ADS) while a gun is reloading.
+	#Only used by guns whose gun JSON has no "allow_aim_during_reload" entry.
+	#true: such guns allow aiming during reload (default).
+	#false: such guns prohibit aiming during reload.
+	#An explicit allow_aim_during_reload in the gun JSON always overrides this.
+	allowAimingDuringReload = true
+

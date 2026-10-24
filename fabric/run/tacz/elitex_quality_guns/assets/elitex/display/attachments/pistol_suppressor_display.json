@@ -1,0 +1,10 @@
+{
+  "model_type": "mesh",
+  "slot": "elitex:attachments/slot/pistol_suppressor",
+  "model": "elitex:attachments/muzzles/pistol_suppressor",
+  "texture": "elitex:attachments/muzzles/pistol_suppressor",
+  "sounds": {
+    "install": "tacz:attachments/muzzle_general",
+    "uninstall": "tacz:attachments/muzzle_general"
+  }
+}

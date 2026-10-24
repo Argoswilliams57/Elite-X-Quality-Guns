@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.argos_garcia.elitex.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EntityKineticBulletAccessor",
+    "ExplodeUtilMixin",
+    "JsonDataManagerMixin",
+    "CommonNetworkCacheMixin",
+    "LivingEntityAimMixin",
+    "LivingEntityReloadMixin"
+  ],
+  "client": [
+    "LocalPlayerAimMixin",
+    "LocalPlayerReloadMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

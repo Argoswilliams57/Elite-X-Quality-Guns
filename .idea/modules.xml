@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/Elite_X_Quality_Guns_Multiloader.fabric.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/Elite_X_Quality_Guns_Multiloader.fabric.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fabric/Elite_X_Quality_Guns_Multiloader.fabric.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fabric/Elite_X_Quality_Guns_Multiloader.fabric.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/Elite_X_Quality_Guns_Multiloader.forge.main.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/Elite_X_Quality_Guns_Multiloader.forge.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/forge/Elite_X_Quality_Guns_Multiloader.forge.test.iml" filepath="$PROJECT_DIR$/.idea/modules/forge/Elite_X_Quality_Guns_Multiloader.forge.test.iml" />
+    </modules>
+  </component>
+</project>

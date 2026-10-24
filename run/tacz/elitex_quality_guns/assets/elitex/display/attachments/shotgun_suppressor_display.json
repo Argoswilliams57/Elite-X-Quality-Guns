@@ -1,0 +1,10 @@
+{
+  "model_type": "mesh",
+  "slot": "elitex:attachments/slot/shotgun_suppressor",
+  "model": "elitex:attachments/muzzles/shotgun_suppressor",
+  "texture": "elitex:attachments/muzzles/shotgun_suppressor",
+  "sounds": {
+    "install": "tacz:attachments/muzzle_general",
+    "uninstall": "tacz:attachments/muzzle_general"
+  }
+}

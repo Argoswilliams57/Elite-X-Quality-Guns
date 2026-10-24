@@ -1,0 +1,185 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'maven-publish'
+}
+
+version = rootProject.version
+group = rootProject.group
+
+base {
+    archivesName = 'Elite X Quality Guns Fabric'
+}
+
+repositories {
+    maven {
+        url = "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+    // TaCZ: Refabricated bundles LuaJ (FiguraMC's fork) as a Jar-in-Jar library.
+    // The same fork is published on JitPack under these coordinates.
+    maven {
+        name = 'JitPack (FiguraMC LuaJ)'
+        url = 'https://jitpack.io'
+        content {
+            includeGroup "com.github.FiguraMC.luaj"
+        }
+    }
+    // Cardinal Components API modules that TaCZ: Refabricated embeds as Jar-in-Jar.
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup "dev.onyxstudios.cardinal-components-api"
+        }
+    }
+    // Modern KeyBinding (embedded by TaCZ: Refabricated 0.7.0 as Jar-in-Jar).
+    maven {
+        name = 'Modrinth'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+    // Cloth Config API (me.shedaniel.cloth:cloth-config-fabric).
+    maven {
+        name = 'shedaniel'
+        url = 'https://maven.shedaniel.me/'
+        content {
+            includeGroup "me.shedaniel.cloth"
+        }
+    }
+    // Mod Menu (com.terraformersmc:modmenu).
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+        content {
+            includeGroup "com.terraformersmc"
+        }
+    }
+    flatDir {
+        // fabric/libs holds the local SimpleBedrockModel jar (not on any Maven).
+        dirs project.file('libs'), rootProject.file('libs/mods')
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.layered {
+        mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+        // TaCZ: Refabricated 0.7.x ships two methods that both map to "render"
+        // (its own renderer method and the ItemRenderer override). tiny-remapper
+        // refuses to remap the jar without disambiguating one of them.
+        // This extra mapping layer renames the mod's duplicate method.
+        // Same workaround verified in the "Elite x Quality Guns 5.0 Fabric 1.20.1" project.
+        mappings file("mappings/tacz-render-fix.tiny")
+    }
+
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // Required at runtime by TaCZ: Refabricated itself (declared in its fabric.mod.json).
+    modImplementation "curse.maven:forge-config-api-port-547434:7260491"
+    modImplementation "curse.maven:tacz-refabricated-1334246:8153691"
+    // TacZ Mesh Loader 0.1.8 (Fabric 1.20.1) - client only, renders the pack's poly_mesh geometry.
+    modImplementation "curse.maven:tacz-mesh-loader-1549522:9014969"
+
+    // Optional configuration UI stack (Fabric). These are maven dependencies only:
+    // Loom does not nest them into the jar (only `include` does), so the released
+    // jar keeps exactly the same contents and the players install them separately.
+    modApi "me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // ---------------------------------------------------------------------------
+    // Development-runtime libraries (runClient / runServer only).
+    //
+    // TaCZ: Refabricated embeds LuaJ, Cardinal Components, commons-math and
+    // SimpleBedrockModel (which itself embeds mae) as Jar-in-Jar entries in
+    // META-INF/jars/. Fabric Loader only unpacks nested jars for a production
+    // launch from the mods folder - during a dev launch they never reach the
+    // classpath, so TaCZ crashed with:
+    //   NoClassDefFoundError: org/luaj/vm2/Varargs
+    //   NoClassDefFoundError: dev/onyxstudios/cca/api/v3/entity/EntityComponentInitializer
+    // Adding the same artifacts below makes the dev runtime match production.
+    // None of them are embedded in the released jar: production keeps using the
+    // copies TaCZ already ships.
+    // ---------------------------------------------------------------------------
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-core:3.0.8-figura"
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-jse:3.0.8-figura" // also pulls bcel 6.6.1
+    runtimeOnly "org.apache.commons:commons-math3:3.6.1"        // gun recoil / interpolation math
+    runtimeOnly("com.maydaymemory:mae:1.1.1") {                 // animation engine used by SimpleBedrockModel
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'it.unimi.dsi', module: 'fastutil'
+        exclude group: 'org.joml', module: 'joml'
+    }
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:5.2.3"
+    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:5.2.3"
+    // TaCZ 0.7.0 embeds Modern KeyBinding (the 0.7.1 changelog removed it in favour
+    // of KeybindFixPlus), and its client entrypoint calls into committee.nova.mkb.
+    modImplementation "maven.modrinth:modernkeybinding:1.20.X-1.2.0"
+    // SimpleBedrockModel (Fabric port) is not published to a Maven; the exact jar
+    // TaCZ embeds is stored in fabric/libs so Loom can remap it for the dev runtime.
+    modImplementation "libs:simplebedrockmodel-fabric:2.3.0.1+mc1.20.1"
+}
+
+sourceSets {
+    main {
+        resources {
+            // Shared content pack and assets (single source of truth).
+            srcDir rootProject.file('common/src/main/resources')
+        }
+    }
+}
+
+loom {
+    mixin {
+        // Keep the refmap name in sync with elitex.fabric.mixins.json ("refmap").
+        // Loom would otherwise derive it from archivesName (spaces included).
+        defaultRefmapName = 'elitex.refmap.json'
+    }}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "Elite X Quality Guns Fabric",
+                "Specification-Vendor"    : "Argos Williams",
+                "Specification-Version"   : project.version,
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "Argos Williams",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = 'Elite X Quality Guns Fabric'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${rootProject.projectDir}/mcmodsrepo"
+        }
+    }
+}
