@@ -1,0 +1,146 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "root",
+					"pivot": [0, 6.03125, 1.8125]
+				},
+				{
+					"name": "group5",
+					"parent": "root",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-0.52344, 2.22094, 3.15798],
+							"size": [1.04688, 4.0625, 1.96875],
+							"pivot": [0, 3.84594, 4.12673],
+							"rotation": [20, 0, 0],
+							"uv": {
+								"north": {"uv": [3, 6], "uv_size": [1, 4]},
+								"east": {"uv": [2, 2], "uv_size": [2, 4]},
+								"south": {"uv": [4, 6], "uv_size": [1, 4]},
+								"west": {"uv": [4, 2], "uv_size": [2, 4]}
+							}
+						},
+						{
+							"origin": [-0.52344, 5.53344, 0.06423],
+							"size": [1.04688, 0.6875, 5.0625],
+							"inflate": 0.0002,
+							"uv": {
+								"north": {"uv": [10, 5], "uv_size": [1, 0.5]},
+								"east": {"uv": [5, 7], "uv_size": [5, 0.5]},
+								"south": {"uv": [7, 10], "uv_size": [1, 0.5]},
+								"west": {"uv": [7, 6], "uv_size": [5, 0.5]},
+								"down": {"uv": [2, 11], "uv_size": [1, -5]}
+							}
+						},
+						{
+							"origin": [-0.55469, 6.15844, -3.24827],
+							"size": [1.10938, 0.90625, 8.625],
+							"uv": {
+								"north": {"uv": [5, 6], "uv_size": [1, 1]},
+								"east": {"uv": [0, 0], "uv_size": [8.5, 1]},
+								"south": {"uv": [9, 9], "uv_size": [1, 1]},
+								"west": {"uv": [0, 1], "uv_size": [8.5, 1]},
+								"up": {"uv": [0, 2], "uv_size": [1, 8.5]},
+								"down": {"uv": [1, 10.5], "uv_size": [1, -8.5]}
+							}
+						},
+						{
+							"origin": [-0.36719, 6.15844, 4.68923],
+							"size": [0.73438, 1.09375, 0.28125],
+							"uv": {
+								"north": {"uv": [8, 10], "uv_size": [0.5, 1]},
+								"east": {"uv": [10, 8], "uv_size": [0.5, 1]},
+								"south": {"uv": [9, 10], "uv_size": [0.5, 1]},
+								"west": {"uv": [10, 9], "uv_size": [0.5, 1]},
+								"up": {"uv": [11, 3], "uv_size": [0.5, 0.5]}
+							}
+						},
+						{
+							"origin": [-0.08594, 6.15844, -2.87327],
+							"size": [0.17188, 1.09375, 0.28125],
+							"uv": {
+								"north": {"uv": [10, 10], "uv_size": [0.5, 1]},
+								"east": {"uv": [0, 11], "uv_size": [0.5, 1]},
+								"south": {"uv": [1, 11], "uv_size": [0.5, 1]},
+								"west": {"uv": [11, 1], "uv_size": [0.5, 1]},
+								"up": {"uv": [4, 11], "uv_size": [0.5, 0.5]}
+							}
+						},
+						{
+							"origin": [0, 4.34594, 0.65798],
+							"size": [0, 1.3125, 2.34375],
+							"uv": {
+								"east": {"uv": [7, 2], "uv_size": [2.5, 1.5]},
+								"west": {"uv": [7, 4], "uv_size": [2.5, 1.5]}
+							}
+						},
+						{
+							"origin": [-0.42969, 5.59594, -2.09202],
+							"size": [0.85938, 0.625, 4.3125],
+							"uv": {
+								"north": {"uv": [10, 7], "uv_size": [1, 0.5]},
+								"east": {"uv": [5, 8], "uv_size": [4.5, 0.5]},
+								"west": {"uv": [9, 0], "uv_size": [4.5, 0.5]},
+								"down": {"uv": [6, 6.5], "uv_size": [1, -4.5]}
+							}
+						},
+						{
+							"origin": [-0.52344, 1.97346, 3.65346],
+							"size": [1.04688, 0.6875, 1.96875],
+							"uv": {
+								"north": {"uv": [10, 3], "uv_size": [1, 0.5]},
+								"east": {"uv": [9, 1], "uv_size": [2, 0.5]},
+								"south": {"uv": [10, 4], "uv_size": [1, 0.5]},
+								"west": {"uv": [7, 9], "uv_size": [2, 0.5]}
+							}
+						},
+						{
+							"origin": [-0.52344, 1.72346, 3.49721],
+							"size": [1.04688, 0.25, 2.125],
+							"uv": {
+								"north": {"uv": [2, 11], "uv_size": [1, 0.5]},
+								"east": {"uv": [10, 2], "uv_size": [2, 0.5]},
+								"south": {"uv": [3, 11], "uv_size": [1, 0.5]},
+								"west": {"uv": [3, 10], "uv_size": [2, 0.5]},
+								"up": {"uv": [5, 9], "uv_size": [1, 2]},
+								"down": {"uv": [6, 11], "uv_size": [1, -2]}
+							}
+						}
+					]
+				},
+				{
+					"name": "positioning",
+					"pivot": [0, 0, -8]
+				},
+				{
+					"name": "thirdperson_hand",
+					"parent": "positioning",
+					"pivot": [0, 5.4875, 1.80625]
+				},
+				{
+					"name": "ground",
+					"parent": "positioning",
+					"pivot": [0, 1.44375, 2.65]
+				},
+				{
+					"name": "fixed",
+					"parent": "positioning",
+					"pivot": [-0.60625, 5.08125, 1.85625],
+					"rotation": [0, 90, 0]
+				}
+			]
+		}
+	]
+}

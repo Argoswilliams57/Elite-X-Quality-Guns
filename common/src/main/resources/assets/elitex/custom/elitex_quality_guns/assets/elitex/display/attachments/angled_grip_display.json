@@ -1,0 +1,9 @@
+{
+  "slot": "elitex:attachments/slot/angled_grip",
+  "model": "elitex:attachments/grips/angled_grip",
+  "texture": "elitex:attachments/grips/angled_grip",
+  "sounds": {
+    "install": "tacz:attachments/attachment_general_b",
+    "uninstall": "tacz:attachments/attachment_general_uninstall"
+  }
+}

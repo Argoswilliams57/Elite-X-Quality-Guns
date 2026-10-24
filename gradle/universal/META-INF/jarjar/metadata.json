@@ -1,0 +1,16 @@
+{
+  "jars": [
+    {
+      "identifier": {
+        "group": "${mod_group_id}",
+        "artifact": "${mod_id}-neoforge"
+      },
+      "version": {
+        "range": "[${mod_version}]",
+        "artifactVersion": "${mod_version}"
+      },
+      "path": "META-INF/jars/${universal_neoforge_jar}",
+      "isObfuscated": false
+    }
+  ]
+}

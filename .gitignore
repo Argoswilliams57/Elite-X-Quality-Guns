@@ -1,0 +1,20 @@
+# Gradle caches
+.gradle/
+
+# Generated build outputs
+**/build/
+
+# Distribution JARs
+dist/
+
+# Local Minecraft development environments
+**/run/
+
+# Development backups
+**/tacz_backup/
+
+# Logs
+*.log
+
+# IntelliJ personal settings
+.idea/

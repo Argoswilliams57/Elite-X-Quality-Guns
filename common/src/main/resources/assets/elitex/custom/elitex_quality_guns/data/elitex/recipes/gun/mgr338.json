@@ -1,0 +1,15 @@
+{
+  "materials": [
+    {
+      "item": {
+        "tag": "forge:ingots/iron"
+      },
+      "count": 136
+    }
+  ],
+  "result": {
+    "type": "gun",
+    "id": "elitex:mgr338"
+  },
+  "type": "tacz:gun_smith_table_crafting"
+}

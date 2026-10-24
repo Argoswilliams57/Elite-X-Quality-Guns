@@ -1,0 +1,9 @@
+tiny	2	0	intermediary	named
+c	com/tacz/guns/client/renderer/item/AmmoItemRenderer	com/tacz/guns/client/renderer/item/AmmoItemRenderer
+	m	(Lnet/minecraft/class_1799;Lnet/minecraft/class_811;Lnet/minecraft/class_4587;Lnet/minecraft/class_4597;II)V	render	render$tacz
+c	com/tacz/guns/client/renderer/item/AnimateGeoItemRenderer	com/tacz/guns/client/renderer/item/AnimateGeoItemRenderer
+	m	(Lnet/minecraft/class_1799;Lnet/minecraft/class_811;Lnet/minecraft/class_4587;Lnet/minecraft/class_4597;II)V	render	render$tacz
+c	com/tacz/guns/client/renderer/item/GunSmithTableItemRenderer	com/tacz/guns/client/renderer/item/GunSmithTableItemRenderer
+	m	(Lnet/minecraft/class_1799;Lnet/minecraft/class_811;Lnet/minecraft/class_4587;Lnet/minecraft/class_4597;II)V	render	render$tacz
+c	com/tacz/guns/client/renderer/item/AttachmentItemRenderer	com/tacz/guns/client/renderer/item/AttachmentItemRenderer
+	m	(Lnet/minecraft/class_1799;Lnet/minecraft/class_811;Lnet/minecraft/class_4587;Lnet/minecraft/class_4597;II)V	render	render$tacz

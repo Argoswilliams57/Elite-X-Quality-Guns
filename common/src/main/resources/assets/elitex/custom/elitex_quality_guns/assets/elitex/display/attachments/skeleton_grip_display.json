@@ -1,0 +1,9 @@
+{
+  "slot": "elitex:attachments/slot/skeleton_grip",
+  "model": "elitex:attachments/grips/skeleton_grip",
+  "texture": "elitex:attachments/grips/skeleton_grip",
+  "sounds": {
+    "install": "tacz:attachments/attachment_general_b",
+    "uninstall": "tacz:attachments/attachment_general_uninstall"
+  }
+}

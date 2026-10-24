@@ -1,0 +1,6 @@
+{
+  "name": "elitex.attachment.compensator.name",
+  "display": "elitex:compensator_display",
+  "data": "elitex:compensator_data",
+  "type": "muzzle"
+}

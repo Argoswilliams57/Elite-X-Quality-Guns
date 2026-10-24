@@ -1,0 +1,7 @@
+{
+  "name": "elitex.attachment.2x_green_dot_sight.name",
+  "display": "elitex:2x_green_dot_sight_display",
+  "data": "elitex:2x_green_dot_sight_data",
+  "type": "scope",
+  "sort": 11
+}

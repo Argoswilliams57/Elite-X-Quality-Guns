@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "elitex",
+  "version": "${version}",
+  "name": "Elite X Quality Guns",
+  "description": "Elite x Quality Guns brings a fresh arsenal of immersive and reimagined firearms to TaCZ. Some weapons are inspired by iconic video games, offering unique designs and features never seen before in Minecraft. Fabric build for Minecraft 26.3, powered by TaCZ: Refabricated.",
+  "authors": [
+    "Argos Williams"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/elite-x-quality-guns"
+  },
+  "license": "All Rights Reserved, Creative Commons Attribution",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.argos_garcia.elitex.fabric.EliteXFabric"
+    ],
+    "modmenu": [
+      "com.argos_garcia.elitex.fabric.client.EliteXModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "elitex.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25",
+    "fabric-api": "*",
+    "forgeconfigapiport": ">=26.3.0",
+    "tacz": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

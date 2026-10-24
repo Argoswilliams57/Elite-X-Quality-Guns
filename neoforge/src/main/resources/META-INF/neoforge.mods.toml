@@ -1,0 +1,46 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved, Creative Commons Attribution"
+## issueTrackerURL=""
+
+[[mods]]
+modId="elitex"
+version="6.1"
+displayName="Elite X Quality Guns"
+authors="Argos Williams"
+credits="Argos Williams"
+description="Elite x Quality Guns brings a fresh arsenal of immersive and reimagined firearms to the Tacz Mod. Some weapons are inspired by iconic video games, offering unique designs and features never seen before in Minecraft."
+updateJSONURL="https://raw.githubusercontent.com/ElitexUltraStudios/Elite_X_Quality_Guns_1.20.1/refs/heads/master/update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/elite-x-quality-guns"
+# 26.3 replaced logoFile with iconFile (square icon) / bannerFile.
+iconFile="icon.png"
+
+# NeoForge 1.20.5+ loads mixin configurations from the mod file metadata.
+[[mixins]]
+config="elitex.mixins.json"
+
+[[dependencies.elitex]]
+modId="neoforge"
+type="required"
+versionRange="[26.3.0.51-beta,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.elitex]]
+modId="minecraft"
+type="required"
+versionRange="[26.3,26.4)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.elitex]]
+modId="tacz"
+type="required"
+versionRange="[1.1.8,)"
+ordering="NONE"
+side="BOTH"
+
+[modproperties."catalogue"]
+catalogueImageIcon="icon.png"
+#catalogueBackground="catalogue_background.png"
+configuredBackground="minecraft:textures/block/stone.png"

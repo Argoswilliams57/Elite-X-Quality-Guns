@@ -1,0 +1,144 @@
+plugins {
+    id 'net.fabricmc.fabric-loom'
+    id 'maven-publish'
+}
+
+base {
+    archivesName = 'Elite X Quality Guns Fabric'
+}
+
+repositories {
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
+    // TaCZ: Refabricated bundles FiguraMC's LuaJ fork as a Jar-in-Jar library.
+    maven {
+        name = 'JitPack (FiguraMC LuaJ)'
+        url = 'https://jitpack.io'
+        content {
+            includeGroup 'com.github.FiguraMC.luaj'
+        }
+    }
+    // Mod Menu (com.terraformersmc:modmenu).
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/releases/'
+        content {
+            includeGroup 'com.terraformersmc'
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    // 26.1+ ships unobfuscated class names, so no mappings layer and no
+    // remapping of Fabric API / TaCZ are required (the official 26.3 Fabric
+    // example mod uses the same plain `implementation` configurations).
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    implementation "curse.maven:unofficial-tacz-refabricated-1627909:9282484"
+
+    // Forge Config API Port: hard dependency of TaCZ: Refabricated and provider
+    // of the ForgeConfigSpec used by EliteXConfig on Fabric.
+    implementation "curse.maven:forge-config-api-port-fabric-547434:${project.forge_config_api_port_fabric_file}"
+
+    // Optional configuration UI (Mod Menu only shows the button when installed).
+    // These are maven dependencies only: Loom does not nest them into the jar
+    // (only `include` does), so the released jar keeps the same contents and the
+    // players install them separately.
+    implementation "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    // ---------------------------------------------------------------------------
+    // Development-runtime libraries (runClient / runServer only).
+    //
+    // TaCZ: Refabricated 26.3 embeds LuaJ, bcgl, commons-math3 and mae as
+    // Jar-in-Jar entries in META-INF/jars/. Fabric Loader only unpacks nested
+    // jars for a production launch from the mods folder - during a dev launch
+    // they never reach the classpath, so TaCZ would crash with:
+    //   NoClassDefFoundError: org/luaj/vm2/Varargs
+    //   NoClassDefFoundError: com/maydaymemory/mae/...
+    // Adding the same artifacts below makes the dev runtime match production.
+    // None of them are embedded in the released jar: production keeps using the
+    // copies TaCZ already ships.
+    // ---------------------------------------------------------------------------
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-core:3.0.8-figura"
+    runtimeOnly "com.github.FiguraMC.luaj:luaj-jse:3.0.8-figura" // also pulls bcel 6.6.1
+    runtimeOnly "org.apache.commons:commons-math3:3.6.1"        // gun recoil / interpolation math
+    runtimeOnly("com.maydaymemory:mae:1.1.1") {                 // animation engine shipped by TaCZ 26.3
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'it.unimi.dsi', module: 'fastutil'
+        exclude group: 'org.joml', module: 'joml'
+    }
+    // Forge Config API Port 26.3.1 embeds NightConfig (core + toml 3.8.4) as
+    // Jar-in-Jar. A dev launch does not unpack nested jars, so the config API
+    // would fail with:
+    //   NoClassDefFoundError: com/electronwill/nightconfig/core/ConfigFormat
+    // compileOnly is needed as well because ForgeConfigSpec extends NightConfig's
+    // UnmodifiableConfigWrapper.
+    compileOnly "com.electronwill.night-config:core:3.8.4"
+    compileOnly "com.electronwill.night-config:toml:3.8.4"
+    runtimeOnly "com.electronwill.night-config:core:3.8.4"
+    runtimeOnly "com.electronwill.night-config:toml:3.8.4"
+}
+
+sourceSets {
+    main {
+        resources {
+            // Shared content pack and assets (single source of truth).
+            srcDir rootProject.file('common/src/main/resources')
+        }
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = java_version as int
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(java_version as int)
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "Elite X Quality Guns Fabric",
+                "Specification-Vendor"    : "Argos Williams",
+                "Specification-Version"   : project.version,
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "Argos Williams",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+publishing {
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = 'Elite X Quality Guns Fabric'
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${rootProject.projectDir}/mcmodsrepo"
+        }
+    }
+}
