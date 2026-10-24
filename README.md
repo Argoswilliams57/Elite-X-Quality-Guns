@@ -54,4 +54,4 @@ See the repository's license file for the applicable terms.
 
 ## Developer
 
-**Argos Studios**
+**Argos Williams**
